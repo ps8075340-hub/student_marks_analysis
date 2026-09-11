@@ -1,48 +1,72 @@
-# student_marks_analysis
-Pandas project based on school syllabus. 
-import pandas as pd
+📊 Student Marks Analysis using Pandas
 
+My first project using Pandas 🐼
 
-data = {'Name':['Ajay', 'Jack', 'Vinit', 'Salni', 'Neha'], 'Maths':[78, 67, 88, 82, 99], 'Comp':[99, 87, 90, 67, 78], 'Sci':[56, 78, 78, 89, 90],'Eng':[98, 89, 78, 76, 54]}
+This project analyzes student marks using Python and Pandas. It calculates total and average marks, finds subject-wise toppers and lowest scores, and exports the final data to a CSV file.
 
-df = pd.DataFrame(data)
-sub = ['Maths', 'Comp', 'Sci', 'Eng']
+🚀 Features
 
-# Total marks and Average marks
-mark = df.assign(Total = lambda x: x['Maths']+x['Comp']+x['Sci']+x['Eng'], Average = lambda x: x[sub].mean(axis = 1))
+- Creates a student dataset using a Python dictionary
+- Converts the data into a Pandas DataFrame
+- Calculates:
+  - Total marks
+  - Average marks
+- Finds the student with:
+  - Highest marks in Maths
+  - Lowest marks in Science
+  - Highest total marks
+  - Lowest total marks
+- Calculates subject-wise:
+  - Average marks
+  - Maximum marks
+  - Minimum marks
+- Exports the analyzed data to "student.csv"
 
-print(mark)
+🛠️ Technologies Used
 
-# highest marks and lowest marks
-maths_marks = df['Maths'].max()
-row_marks = df['Maths'].idxmax()
-top_name = df.loc[row_marks, 'Name']
+- Python 🐍
+- Pandas 🐼
+- CSV
 
-sci_marks = df['Sci'].min()
-sci_row = df['Sci'].idxmin()
-low_name = df.loc[sci_row, 'Name']
+📚 Pandas Concepts Practiced
 
-print('\n', 'Topper in maths : ', top_name, '-',maths_marks, 'marks', '\n Lower in Science : ', low_name, '-', sci_marks, 'marks')
+In this project, I practiced:
 
-# max and min in total marks
-# Maximum total marks
-max_total = mark['Total'].max()
-max_row = mark['Total'].idxmax() 
-top_student = mark.loc[max_row, 'Name'] 
+- "pd.DataFrame()"
+- Selecting columns
+- ".max()"
+- ".min()"
+- ".mean()"
+- ".idxmax()"
+- ".idxmin()"
+- ".loc[]"
+- ".assign()"
+- "to_csv()"
+- "axis=1"
 
-# Minimum total marks
-min_total = mark['Total'].min()
-min_row = mark['Total'].idxmin()
-weak_student = mark.loc[min_row, 'Name']
+📁 Project Structure
 
-print('\nTopper in total marks:', top_student, '-', max_total)
-print('Lowest in total marks:', weak_student, '-', min_total)
+Student-Marks-Analysis/
+│
+├── student_marks.py
+├── student.csv
+└── README.md
 
-# Subject wise average marks
-print('\nAverage marks in subject wise\n', mark[sub].mean()) 
-print('\nMax marks subject wise\n',mark[sub].max())
-print('\nMin marks subject wise\n', mark[sub].min())
+💡 What I Learned
 
-mark.to_csv('student.csv')
+Through this project, I learned how Pandas can be used to work with structured data and perform calculations and analysis efficiently.
 
+This is my first Pandas project, and I plan to build more data-analysis and AI-related projects as I continue learning.
 
+🔮 Future Improvements
+
+- Add percentage calculation
+- Add grades automatically
+- Sort students by total marks
+- Create charts using Matplotlib
+- Read student data from an existing CSV file
+- Add more students and subjects
+
+---
+
+⭐ First step in my Pandas journey!
